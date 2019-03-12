@@ -25,4 +25,5 @@ public enum Importance {
         return "Importance{" +
                 "level=" + level +
                 '}';
-    }}
+    }
+}

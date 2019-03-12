@@ -1,16 +1,11 @@
 package project.model.entity;
 
-import project.builder.CreatorPublication;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
-
-import static com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary.stringToInt;
 
 /**
  * Created on 07.03.2019.
@@ -53,7 +48,7 @@ public class Publication {
 
     public List<Publication> sortByTimeCreation(List<Publication> publications) {
         publications.sort(new Comparator<Publication>() {
-            DateFormat f = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SS");
+            DateFormat f = new SimpleDateFormat("dd/MM/yyyy");
             @Override
             public int compare(Publication o1, Publication o2) {
                 try {
@@ -92,27 +87,42 @@ public class Publication {
     public List<Publication> findByTitle(List<Publication> publications, String nameNoteType) {
         List<Publication> result = new ArrayList<>();
         for (Publication publication : publications) {
-            //Predicate<String> predicate = (value) -> publication.noteType.equals(nameNoteType);
-            //if (predicate.test(nameNoteType)) {
             if (publication.noteType.equals(nameNoteType)) {
                 result.add(publication);
             }
         }
-
-        /*
-        public List<Item> findByName(String name) {
-        List<Item> result = new ArrayList<>();
-        for (Item item : items) {
-            predicate = (value) -> item.getName().equals(value);
-            if (predicate.test(name)) {
-                result.add(item);
-            }
-        }
-         */
         return result;
     }
 
-    public void associationOfPublications() {}
+    public List<Publication> findById(List<Publication> publications, int idPublication) {
+        List<Publication> result = new ArrayList<>();
+        for (Publication publication : publications) {
+            if (publication.id == idPublication) {
+                result.add(publication);
+            }
+        }
+        return result;
+    }
+
+    public List<Publication> findByDate(List<Publication> publications, String date) {
+        List<Publication> result = new ArrayList<>();
+        for (Publication publication : publications) {
+            if (publication.timeCreation.equals(date)) {
+                result.add(publication);
+            }
+        }
+        return result;
+    }
+
+    public List<Publication> findByImportance(List<Publication> publications, int importancePublication) {
+        List<Publication> result = new ArrayList<>();
+        for (Publication publication : publications) {
+            if (publication.importance == importancePublication) {
+                result.add(publication);
+            }
+        }
+        return result;
+    }
 
     @Override
     public String toString() {

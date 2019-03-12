@@ -1,11 +1,9 @@
 package project;
 
 import project.builder.CreatorPublication;
-import project.builder.MenuPublication;
+import project.controller.Controller;
 import project.model.entity.Publication;
 import project.view.View;
-
-import java.util.List;
 
 /**
  * Created on 01.03.2019.
@@ -16,19 +14,12 @@ import java.util.List;
  */
 public class Main {
 
-    private static CreatorPublication cp = new CreatorPublication();
-    private static Publication publication = new Publication();
-
-
     public static void main(String[] args) {
         View view = new View();
-        MenuPublication mp = new MenuPublication();
+        Publication publication = new Publication();
+        CreatorPublication cp = new CreatorPublication();
 
-        view.printArray(cp.createPublication()); // Print Publication
-        view.printArray(publication.sortByTimeCreation(cp.createPublication()));
-        //view.printArray(publication.sortByImportance(cp.createPublication()));
-        //view.printArray(publication.sortByTitle(cp.createPublication()));
-        //view.printArray(publication.sortById(cp.createPublication()));
-        //view.printArray(publication.findByTitle(cp.createPublication(), "SPORT"));
+        Controller controller = new Controller(view, publication, cp);
+        controller.processUser();
     }
 }

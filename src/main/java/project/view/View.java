@@ -23,7 +23,7 @@ public class View {
     public void printMessage(String ... messages) {
         StringBuilder message = new StringBuilder();
         for (String s : messages) {
-            message.append(s).append(" ");
+            message.append(s);
         }
         System.out.println(message.toString());
     }

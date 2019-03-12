@@ -20,6 +20,12 @@ import static java.util.Arrays.asList;
  */
 public class CreatorPublication {
 
+    private final int ONE = 1;
+    private final int TWO = 2;
+    private final int THREE = 3;
+    private final int FOUR = 4;
+    private final int FIVE = 5;
+
     private List<Note> notes;
 
     public int generateId() {
@@ -35,25 +41,25 @@ public class CreatorPublication {
     public List<Publication> createPublication() {
         List<Publication> notes = new ArrayList<>();
 
-        notes.add(new Publication(generateId(), NoteType.SPORT.getName(),
+        notes.add(new Publication(FOUR, NoteType.SPORT.getName(),
                 asList(new Image(), new Image(), new ListNote(), new Text(), new Text()),
-                NoteType.SPORT.getSize(), Importance.FOUR.getLevel(), date()));
+                NoteType.SPORT.getSize(), Importance.FOUR.getLevel(), "11/03/2019"));
 
-        notes.add(new Publication(generateId(), NoteType.HEALTHY_FOOD.getName(),
+        notes.add(new Publication(ONE, NoteType.HEALTHY_FOOD.getName(),
                 asList(new Image(), new Text(), new ListNote(), new Text()),
-                NoteType.HEALTHY_FOOD.getSize(), Importance.TWO.getLevel(),date()));
+                NoteType.HEALTHY_FOOD.getSize(), Importance.TWO.getLevel(), "11/03/2019"));
 
-        notes.add(new Publication(generateId(), NoteType.SCIENCE_AND_TECHNOLOGY.getName(),
+        notes.add(new Publication(FIVE, NoteType.SCIENCE_AND_TECHNOLOGY.getName(),
                 asList(new Image(), new Text(), new ListNote()),
-                NoteType.SCIENCE_AND_TECHNOLOGY.getSize(), Importance.FIVE.getLevel(),date()));
+                NoteType.SCIENCE_AND_TECHNOLOGY.getSize(), Importance.FIVE.getLevel(), "10/08/2018"));
 
-        notes.add(new Publication(generateId(), NoteType.TOURISM_AND_TRAVEL.getName(),
+        notes.add(new Publication(THREE, NoteType.TOURISM_AND_TRAVEL.getName(),
                 asList(new Image(), new Text(), new ListNote()),
-                NoteType.TOURISM_AND_TRAVEL.getSize(), Importance.THREE.getLevel(),date()));
+                NoteType.TOURISM_AND_TRAVEL.getSize(), Importance.THREE.getLevel(), "08/02/2017"));
 
-        notes.add(new Publication(generateId(), NoteType.SPORT.getName(),
+        notes.add(new Publication(TWO, NoteType.SPORT.getName(),
                 asList(new Image(), new Image(), new ListNote(), new Text(), new Text()),
-                NoteType.SPORT.getSize(), Importance.FOUR.getLevel(), date()));
+                NoteType.SPORT.getSize(), Importance.ONE.getLevel(), "06/02/2016"));
 
         return notes;
     }
